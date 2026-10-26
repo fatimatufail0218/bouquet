@@ -30,7 +30,27 @@ type Species =
   | "dahlia"
   | "lily"
   | "hydrangea"
-  | "anemone";
+  | "anemone"
+  | "bellflower"
+  | "chinaRose"
+  | "salvia"
+  | "primrose"
+  | "hyacinth"
+  | "valley"
+  | "lantana"
+  | "moonflower"
+  | "morningglory"
+  | "nasturtium"
+  | "impatiens"
+  | "loosestrife"
+  | "hibiscus"
+  | "lotus"
+  | "daffodil"
+  | "rosemary"
+  | "orchid"
+  | "snowdrop"
+  | "bluebell"
+  | "carnation";
 
 type Flower = {
   id: number;
@@ -46,10 +66,10 @@ type Flower = {
 };
 
 /*
- * Desktop composition: four depth rows. Back rows sit higher up, front rows
+ * Field no. 01: four depth rows. Back rows sit higher up, front rows
  * are lower and slightly larger. Small x / y offsets keep it organic.
  */
-const flowers: Flower[] = [
+const fieldOneFlowers: Flower[] = [
   // back row
   { id: 6, name: "Lavender", botanicalName: "Lavandula", species: "lavender", color: "#A394C9", center: "#77639B", x: 7, y: 37, size: 108, rotation: 3 },
   { id: 15, name: "Sunflower", botanicalName: "Helianthus annuus", species: "sunflower", color: "#F2BE2E", center: "#5A3A1E", x: 22, y: 34, size: 118, rotation: -4 },
@@ -79,31 +99,102 @@ const flowers: Flower[] = [
   { id: 7, name: "White Cosmos", botanicalName: "Cosmos bipinnatus", species: "cosmos", color: "#FFF9EC", center: "#D6AC52", x: 88, y: 88, size: 126, rotation: -7 },
 ];
 
+/* Field no. 02: twenty more, in four rows of five. */
+const fieldTwoFlowers: Flower[] = [
+  // back row
+  { id: 37, name: "Lotus", botanicalName: "Nelumbo nucifera", species: "lotus", color: "#F2A0BF", center: "#F2C84B", x: 10, y: 36, size: 122, rotation: -3 },
+  { id: 28, name: "Hyacinth", botanicalName: "Hyacinthus orientalis", species: "hyacinth", color: "#9B86DA", center: "#E9DFFA", x: 30, y: 36, size: 116, rotation: 3 },
+  { id: 24, name: "Bellflower", botanicalName: "Campanula", species: "bellflower", color: "#8A7FD8", center: "#F3E9A8", x: 50, y: 37, size: 118, rotation: -4 },
+  { id: 40, name: "Orchid", botanicalName: "Phalaenopsis", species: "orchid", color: "#F6E8F0", center: "#B5307F", x: 70, y: 36, size: 124, rotation: 4 },
+  { id: 31, name: "Moonflower", botanicalName: "Ipomoea alba", species: "moonflower", color: "#FBFBF4", center: "#D9E8B0", x: 90, y: 36, size: 120, rotation: -4 },
+  // second row
+  { id: 43, name: "Carnation", botanicalName: "Dianthus caryophyllus", species: "carnation", color: "#E85A7E", center: "#A5264D", x: 19, y: 54, size: 118, rotation: 5 },
+  { id: 36, name: "Hibiscus", botanicalName: "Hibiscus rosa-sinensis", species: "hibiscus", color: "#E8475F", center: "#7A0E2E", x: 38, y: 54, size: 126, rotation: -5 },
+  { id: 25, name: "China Rose", botanicalName: "Rosa chinensis", species: "chinaRose", color: "#EE8CA6", center: "#C65577", x: 57, y: 55, size: 118, rotation: 4 },
+  { id: 27, name: "Primrose", botanicalName: "Primula vulgaris", species: "primrose", color: "#F6E27A", center: "#E0902A", x: 76, y: 54, size: 112, rotation: -5 },
+  { id: 38, name: "Daffodil", botanicalName: "Narcissus pseudonarcissus", species: "daffodil", color: "#F7DA4C", center: "#F0A21C", x: 93, y: 55, size: 118, rotation: 5 },
+  // third row
+  { id: 34, name: "Impatiens", botanicalName: "Impatiens walleriana", species: "impatiens", color: "#F0629A", center: "#FFF1F6", x: 10, y: 72, size: 116, rotation: -4 },
+  { id: 30, name: "Lantana", botanicalName: "Lantana camara", species: "lantana", color: "#EE8FB0", center: "#F5B63B", x: 30, y: 72, size: 114, rotation: 4 },
+  { id: 26, name: "Salvia", botanicalName: "Salvia nemorosa", species: "salvia", color: "#6F6CD0", center: "#4B2E7E", x: 50, y: 72, size: 118, rotation: -3 },
+  { id: 32, name: "Morning Glory", botanicalName: "Ipomoea purpurea", species: "morningglory", color: "#5C7BE2", center: "#F6E9A0", x: 70, y: 72, size: 120, rotation: 4 },
+  { id: 29, name: "Lily of the Valley", botanicalName: "Convallaria majalis", species: "valley", color: "#FFFEF8", center: "#D8E2B0", x: 90, y: 72, size: 114, rotation: -4 },
+  // front row
+  { id: 33, name: "Nasturtium", botanicalName: "Tropaeolum majus", species: "nasturtium", color: "#F08A24", center: "#B52A1B", x: 19, y: 89, size: 122, rotation: 5 },
+  { id: 35, name: "Loosestrife", botanicalName: "Lythrum salicaria", species: "loosestrife", color: "#D8479A", center: "#F5D36A", x: 38, y: 88, size: 122, rotation: -4 },
+  { id: 39, name: "Rosemary", botanicalName: "Salvia rosmarinus", species: "rosemary", color: "#8FB8E0", center: "#5F7F62", x: 57, y: 89, size: 122, rotation: 3 },
+  { id: 41, name: "Snowdrop", botanicalName: "Galanthus nivalis", species: "snowdrop", color: "#FBFBF7", center: "#86B066", x: 76, y: 88, size: 118, rotation: -5 },
+  { id: 42, name: "Bluebell", botanicalName: "Hyacinthoides non-scripta", species: "bluebell", color: "#6D6BD6", center: "#E8E4FA", x: 93, y: 89, size: 120, rotation: 4 },
+];
+
+const flowers: Flower[] = [...fieldOneFlowers, ...fieldTwoFlowers];
+
 const flowerById = new Map(flowers.map((flower) => [flower.id, flower] as const));
 
 /*
- * Mobile composition: three columns, zig-zag rows (3, 2, 3, 2 ...).
- * Positions are generated from this fixed order, so they never change.
- * MOBILE_STAGE_H must match the mobile aspect-ratio in globals.css (100 / 246).
+ * Mobile compositions: three columns, zig-zag rows (3, 2, 3, 2 ...).
+ * Positions are generated from a fixed order, so they never change.
+ * The stage heights (246 and 224) are passed to the CSS as --mh.
  */
-const MOBILE_ORDER = [15, 6, 1, 16, 3, 4, 19, 2, 18, 21, 8, 17, 5, 10, 20, 12, 9, 11, 13, 22, 14, 7, 23];
-const MOBILE_ROWS = [3, 2, 3, 2, 3, 2, 3, 2, 3];
-const MOBILE_STAGE_H = 246;
-
-const MOBILE_POS = (() => {
+function layoutMobile(order: number[], rows: number[], stageH: number) {
   const map = new Map<number, { x: number; y: number }>();
   let cursor = 0;
-  MOBILE_ROWS.forEach((count, row) => {
+  rows.forEach((count, row) => {
     const xs = count === 3 ? [17, 50, 83] : [34, 66];
     const base = 46 + row * 22;
     for (let i = 0; i < count; i++) {
-      const id = MOBILE_ORDER[cursor++];
+      const id = order[cursor++];
       const wobble = (((id * 7) % 5) - 2) * 0.6;
-      map.set(id, { x: xs[i], y: round(((base + wobble) / MOBILE_STAGE_H) * 100) });
+      map.set(id, { x: xs[i], y: round(((base + wobble) / stageH) * 100) });
     }
   });
   return map;
-})();
+}
+
+const MOBILE_ORDER_ONE = [15, 6, 1, 16, 3, 4, 19, 2, 18, 21, 8, 17, 5, 10, 20, 12, 9, 11, 13, 22, 14, 7, 23];
+const MOBILE_ORDER_TWO = [37, 28, 24, 40, 31, 43, 36, 25, 27, 38, 34, 30, 26, 32, 29, 33, 35, 39, 41, 42];
+
+const MOBILE_POS = new Map([
+  ...layoutMobile(MOBILE_ORDER_ONE, [3, 2, 3, 2, 3, 2, 3, 2, 3], 246).entries(),
+  ...layoutMobile(MOBILE_ORDER_TWO, [3, 2, 3, 2, 3, 2, 3, 2], 224).entries(),
+]);
+
+type Field = {
+  id: string;
+  no: string;
+  title: string;
+  lines: [string, string];
+  fig: string;
+  name: string;
+  flowers: Flower[];
+  mobileH: number;
+  next: { href: string; label: string };
+};
+
+const FIELDS: Field[] = [
+  {
+    id: "meadow",
+    no: "01",
+    title: "Take your time.",
+    lines: ["Tap a flower to add it,", "tap again for more of the same ↗"],
+    fig: "Fig. 01",
+    name: "The wild meadow",
+    flowers: fieldOneFlowers,
+    mobileH: 246,
+    next: { href: "#meadow-2", label: "On to field no. 02 ↓" },
+  },
+  {
+    id: "meadow-2",
+    no: "02",
+    title: "A little further on.",
+    lines: ["Twenty more to wander through,", "tap any flower to gather it ↗"],
+    fig: "Fig. 02",
+    name: "The cottage border",
+    flowers: fieldTwoFlowers,
+    mobileH: 224,
+    next: { href: "#your-picks", label: "See what you have gathered ↓" },
+  },
+];
 
 /* Bouquet customisation options */
 
@@ -163,6 +254,9 @@ type WrapStyle = (typeof STYLES)[number]["id"];
 type NotePaperId = (typeof NOTE_PAPERS)[number]["id"];
 type View = "garden" | "bouquet" | "note";
 
+type ButterflyColors = { c1: string; c2: string };
+const DEFAULT_BUTTERFLY_COLORS: ButterflyColors = { c1: "#9ec5f5", c2: "#c4aef0" };
+
 /* One entry per stem: the same flower can appear many times. */
 type StemEntry = { key: number; flowerId: number };
 type BouquetItem = { key: number; flower: Flower };
@@ -184,6 +278,7 @@ type GiftData = {
   noteColor: NotePaperId;
   to: string;
   from: string;
+  butterflyColors: ButterflyColors;
   message: string;
 };
 
@@ -199,6 +294,7 @@ function encodeGift(gift: GiftData): string {
     t: gift.to,
     a: gift.from,
     x: gift.message,
+    b: [gift.butterflyColors.c1, gift.butterflyColors.c2],
   });
   const bytes = new TextEncoder().encode(json);
   let binary = "";
@@ -235,6 +331,9 @@ function decodeGift(code: string): GiftData | null {
     if (stems.length === 0) return null;
 
     const fillerList: unknown[] = Array.isArray(data.f) ? data.f : [];
+        const bf: unknown[] = Array.isArray(data.b) ? data.b : [];
+    const validHex = (v: unknown, fallback: string) =>
+      typeof v === "string" && /^#[0-9a-fA-F]{6}$/.test(v) ? v : fallback;
 
     return {
       stems,
@@ -246,6 +345,10 @@ function decodeGift(code: string): GiftData | null {
       to: cleanText(data.t, NAME_LIMIT),
       from: cleanText(data.a, NAME_LIMIT),
       message: cleanText(data.x, MESSAGE_LIMIT),
+      butterflyColors: {
+        c1: validHex(bf[0], DEFAULT_BUTTERFLY_COLORS.c1),
+        c2: validHex(bf[1], DEFAULT_BUTTERFLY_COLORS.c2),
+      },
     };
   } catch {
     return null;
@@ -536,6 +639,12 @@ const PEONY_LAYERS: Layer[] = [
   { n: 5, dist: 3, rx: 8, ry: 9, offset: 18 },
 ];
 
+const CHINA_LAYERS: Layer[] = [
+  { n: 5, dist: 13, rx: 15, ry: 16, offset: 0 },
+  { n: 5, dist: 8.5, rx: 12.5, ry: 13.5, offset: 36 },
+  { n: 4, dist: 4, rx: 9, ry: 10, offset: 12 },
+];
+
 function LayeredBloom({
   uid,
   color,
@@ -685,6 +794,26 @@ function Ranunculus({ uid, color, center }: BloomProps) {
         core="eye"
         depth={0.35}
       />
+    </>
+  );
+}
+
+function ChinaRose({ uid, color, center }: BloomProps) {
+  return (
+    <>
+      <Stem
+        y0={80}
+        lean={4}
+        width={3}
+        leaves={[
+          { t: 0.45, side: -1, length: 32, width: 9, tilt: 50, tone: "dark" },
+          { t: 0.62, side: 1, length: 30, width: 8.5, tilt: 54, tone: "light" },
+          { t: 0.8, side: -1, length: 24, width: 7, tilt: 58, tone: "dark" },
+        ]}
+      />
+      <Calyx cy={77} />
+      <LayeredBloom uid={uid} color={color} center={center} layers={CHINA_LAYERS} core="eye" depth={0.32} />
+      <Dots cx={60} cy={52} count={9} radius={3.6} r={0.9} fill="#f6d46a" opacity={0.95} />
     </>
   );
 }
@@ -1792,6 +1921,1107 @@ function Poppy({ uid, color, center }: BloomProps) {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  Field no. 02 flowers                                                      */
+/* -------------------------------------------------------------------------- */
+
+/* Bellflower: upright, scalloped bells on short stalks */
+
+const BELL_SHAPE =
+  "M0 0 C-8 2 -12 14 -15 26 L-11 31 L-7 26 L-3 32 L0 27 L3 32 L7 26 L11 31 L15 26 C12 14 8 2 0 0Z";
+
+function Bellflower({ uid, color, center }: BloomProps) {
+  const id = `${uid}-bell`;
+  const edge = darken(color, 0.35);
+  const bells = [
+    { x: 60, y: 28, r: 0, s: 1.15, d: "M60 46 Q58 36 60 28" },
+    { x: 36, y: 48, r: -24, s: 0.88, d: "M60 48 Q46 38 36 48" },
+    { x: 84, y: 46, r: 24, s: 0.82, d: "M60 48 Q74 36 84 46" },
+  ];
+
+  return (
+    <>
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor={darken(color, 0.12)} />
+          <stop offset="0.55" stopColor={color} />
+          <stop offset="1" stopColor={lighten(color, 0.35)} />
+        </linearGradient>
+      </defs>
+      <Stem
+        y0={48}
+        lean={3}
+        width={2.4}
+        leaves={[
+          { t: 0.3, side: -1, length: 34, width: 6, tilt: 50, tone: "light" },
+          { t: 0.55, side: 1, length: 30, width: 6, tilt: 54, tone: "dark" },
+          { t: 0.8, side: -1, length: 24, width: 5, tilt: 58, tone: "pale" },
+        ]}
+      />
+      <g fill="none" stroke={GREEN.stem} strokeWidth="1.6" strokeLinecap="round">
+        {bells.map((b) => (
+          <path key={b.d} d={b.d} />
+        ))}
+      </g>
+      {bells.map((b, i) => (
+        <g key={i} transform={`translate(${b.x} ${b.y}) rotate(${b.r}) scale(${b.s})`}>
+          <path d={BELL_SHAPE} fill={`url(#${id})`} stroke={edge} strokeOpacity="0.3" strokeWidth="0.7" strokeLinejoin="round" />
+          <g fill="none" stroke={edge} strokeOpacity="0.22" strokeWidth="0.6" strokeLinecap="round">
+            <path d="M-4 3 C-6 12 -8 20 -9 27" />
+            <path d="M0 3 L0 26" />
+            <path d="M4 3 C6 12 8 20 9 27" />
+          </g>
+          <ellipse cx="0" cy="29" rx="1.8" ry="3.2" fill={center} />
+        </g>
+      ))}
+    </>
+  );
+}
+
+/* Salvia: tall spikes of two-lipped flowers in dark calyces */
+
+function SalviaSpike({
+  x,
+  y,
+  rotate,
+  length,
+  color,
+  calyx,
+}: {
+  x: number;
+  y: number;
+  rotate: number;
+  length: number;
+  color: string;
+  calyx: string;
+}) {
+  const n = Math.max(4, Math.round(length / 8));
+  const step = (length - 10) / (n - 1);
+  const lip = lighten(color, 0.22);
+
+  return (
+    <g transform={`translate(${x} ${y}) rotate(${rotate})`}>
+      <path d={`M0 0 L0 ${-length}`} stroke={GREEN.leafDark} strokeWidth="1.5" strokeLinecap="round" />
+      {Array.from({ length: n }, (_, i) => {
+        const t = i / (n - 1);
+        const s = round(1 - t * 0.45);
+        const yy = round(-8 - i * step);
+        const dx = round(6 * s);
+        return (
+          <g key={i} stroke={darken(color, 0.35)} strokeOpacity="0.3" strokeWidth="0.35">
+            <ellipse cx="0" cy={round(yy + 2.5 * s)} rx={round(3.6 * s)} ry={round(3 * s)} fill={calyx} />
+            {([-1, 1] as const).map((side) => (
+              <g key={side}>
+                <ellipse
+                  cx={round(side * dx)}
+                  cy={yy}
+                  rx={round(7 * s)}
+                  ry={round(2.9 * s)}
+                  transform={`rotate(${side * -34} ${round(side * dx)} ${yy})`}
+                  fill={i % 2 ? color : lip}
+                />
+                <ellipse
+                  cx={round(side * dx * 0.7)}
+                  cy={round(yy + 3 * s)}
+                  rx={round(3.8 * s)}
+                  ry={round(2.2 * s)}
+                  fill={darken(color, 0.12)}
+                />
+              </g>
+            ))}
+          </g>
+        );
+      })}
+      <ellipse cx="0" cy={-length - 2} rx="2" ry="4" fill={calyx} />
+    </g>
+  );
+}
+
+function Salvia({ color, center }: Omit<BloomProps, "uid">) {
+  return (
+    <>
+      <Stem
+        y0={96}
+        lean={2}
+        width={2.8}
+        leaves={[
+          { t: 0.5, side: -1, length: 34, width: 11, tilt: 58, tone: "dark" },
+          { t: 0.68, side: 1, length: 32, width: 10, tilt: 60, tone: "light" },
+          { t: 0.86, side: -1, length: 26, width: 8, tilt: 62, tone: "pale" },
+        ]}
+      />
+      <SalviaSpike x={60} y={126} rotate={-18} length={50} color={color} calyx={center} />
+      <SalviaSpike x={60} y={132} rotate={20} length={44} color={color} calyx={center} />
+      <SalviaSpike x={60} y={96} rotate={0} length={86} color={color} calyx={center} />
+    </>
+  );
+}
+
+/* Primrose: five notched petals around a star-shaped eye */
+
+const PRIM_PETAL =
+  "M0 0 C-12 -4 -18 -16 -11 -23 C-8 -25 -3 -23 0 -18 C3 -23 8 -25 11 -23 C18 -16 12 -4 0 0Z";
+
+function Primrose({ uid, color, center }: BloomProps) {
+  const id = `${uid}-prim`;
+  const edge = darken(color, 0.35);
+
+  return (
+    <>
+      <defs>
+        <linearGradient id={id} x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor={mix(color, center, 0.55)} />
+          <stop offset="0.4" stopColor={color} />
+          <stop offset="1" stopColor={lighten(color, 0.3)} />
+        </linearGradient>
+      </defs>
+      <Stem
+        y0={76}
+        lean={3}
+        width={2.4}
+        leaves={[
+          { t: 0.55, side: -1, length: 46, width: 15, tilt: 64, tone: "dark" },
+          { t: 0.72, side: 1, length: 42, width: 14, tilt: 66, tone: "light" },
+          { t: 0.9, side: -1, length: 30, width: 11, tilt: 70, tone: "pale" },
+        ]}
+      />
+      <g transform="translate(60 52) scale(1 0.94)">
+        {Array.from({ length: 5 }, (_, i) => (
+          <g key={i} transform={`rotate(${i * 72})`}>
+            <path d={PRIM_PETAL} fill={`url(#${id})`} stroke={edge} strokeOpacity="0.28" strokeWidth="0.6" strokeLinejoin="round" />
+            <g fill="none" stroke={edge} strokeOpacity="0.18" strokeWidth="0.5" strokeLinecap="round">
+              <path d="M0 -4 L0 -16" />
+              <path d="M-2 -4 C-5 -9 -7 -14 -7 -19" />
+              <path d="M2 -4 C5 -9 7 -14 7 -19" />
+            </g>
+          </g>
+        ))}
+        <path
+          d="M0 -7 L1.8 -2.4 L6.6 -2 L2.9 1.1 L4.1 6 L0 3.4 L-4.1 6 L-2.9 1.1 L-6.6 -2 L-1.8 -2.4Z"
+          fill={center}
+          opacity="0.85"
+        />
+        <circle r="2.6" fill="#b4c85a" />
+        <circle cx="-0.8" cy="-0.8" r="0.9" fill="#ffffff" opacity="0.5" />
+      </g>
+    </>
+  );
+}
+
+/* Hyacinth: a dense column of tiny six-pointed stars */
+
+function Star6({ x, y, r, fill, edge }: { x: number; y: number; r: number; fill: string; edge: string }) {
+  return (
+    <g transform={`translate(${x} ${y})`} fill={fill} stroke={edge} strokeOpacity="0.3" strokeWidth="0.3">
+      {[0, 60, 120].map((a) => (
+        <ellipse key={a} cx="0" cy="0" rx={round(r * 0.4)} ry={r} transform={`rotate(${a})`} />
+      ))}
+    </g>
+  );
+}
+
+function Hyacinth({ color, center }: Omit<BloomProps, "uid">) {
+  const rows = 10;
+  const shades = [color, lighten(color, 0.2), darken(color, 0.1)];
+  const edge = darken(color, 0.4);
+
+  return (
+    <>
+      <Stem
+        y0={104}
+        lean={2}
+        width={4.2}
+        leaves={[
+          { t: 0.55, side: -1, length: 92, width: 8, tilt: 10, tone: "dark" },
+          { t: 0.7, side: 1, length: 84, width: 8, tilt: 12, tone: "light" },
+        ]}
+      />
+      <path d="M60 106 L60 32" stroke={GREEN.stem} strokeWidth="3.4" strokeLinecap="round" />
+      <ellipse cx="60" cy="27" rx="2.8" ry="5" fill={shades[2]} />
+      {Array.from({ length: rows }, (_, i) => {
+        const w = 0.42 + (0.58 * i) / (rows - 1);
+        const yy = round(34 + i * 7.4);
+        const r = round(5.8 * (0.65 + 0.35 * w));
+        const xs = i === 0 ? [0] : i < 3 ? [-4.5 * w, 4.5 * w] : [-9 * w, 0, 9 * w];
+        return xs.map((dx, k) => (
+          <Star6
+            key={`${i}-${k}`}
+            x={round(60 + dx)}
+            y={yy}
+            r={r}
+            fill={shades[(i + k) % 3]}
+            edge={edge}
+          />
+        ));
+      })}
+      <circle cx="60" cy="66" r="0.01" fill={center} />
+    </>
+  );
+}
+
+/* Lily of the valley: an arching stem hung with tiny white bells */
+
+const VALLEY_BELL = "M0 0 C-5 1 -7 7 -8 12 C-5 14 -2 13 0 12 C2 13 5 14 8 12 C7 7 5 1 0 0Z";
+
+function LilyOfTheValley({ uid, color, center }: BloomProps) {
+  const bare = useContext(BareStemContext);
+  const id = `${uid}-valley`;
+  const p0: Pt = [60, 178];
+  const p1: Pt = [60, 128];
+  const p2: Pt = [52, 40];
+  const p3: Pt = [90, 36];
+  const edge = darken(color, 0.4);
+
+  return (
+    <>
+      <defs>
+        <radialGradient id={id} cx="40%" cy="30%" r="80%">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="1" stopColor={mix(color, center, 0.35)} />
+        </radialGradient>
+      </defs>
+      {!bare && (
+        <g>
+          <Leaf x={57} y={176} angle={-12} length={98} width={20} fill={GREEN.leafDark} />
+          <Leaf x={63} y={176} angle={14} length={88} width={18} fill={GREEN.leaf} />
+        </g>
+      )}
+      <path
+        d={`M${p0[0]} ${p0[1]} C${p1[0]} ${p1[1]} ${p2[0]} ${p2[1]} ${p3[0]} ${p3[1]}`}
+        fill="none"
+        stroke={GREEN.stem}
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+      {[0.6, 0.68, 0.76, 0.84, 0.92].map((t, i) => {
+        const [x, y] = cubic(p0, p1, p2, p3, t);
+        const s = round(1.05 - i * 0.1);
+        return (
+          <g key={t}>
+            <path
+              d={`M${x} ${y} Q${round(x + 2)} ${round(y + 3)} ${round(x + 5)} ${round(y + 7)}`}
+              fill="none"
+              stroke={GREEN.stem}
+              strokeWidth="0.9"
+              strokeLinecap="round"
+            />
+            <g transform={`translate(${round(x + 5)} ${round(y + 7)}) rotate(${6 - i * 2}) scale(${s})`}>
+              <path d={VALLEY_BELL} fill={`url(#${id})`} stroke={edge} strokeOpacity="0.3" strokeWidth="0.5" strokeLinejoin="round" />
+              <path d="M-2 4 C-3 7 -3 9 -3 11 M2 4 C3 7 3 9 3 11" fill="none" stroke={edge} strokeOpacity="0.2" strokeWidth="0.4" />
+            </g>
+          </g>
+        );
+      })}
+      <ellipse cx="91" cy="33" rx="2.2" ry="3" fill={lighten(center, 0.2)} />
+    </>
+  );
+}
+
+/* Lantana: a flat dome of tiny florets that change colour toward the rim */
+
+const LANTANA_FLORETS = Array.from({ length: 34 }, (_, i) => {
+  const r = 4.1 * Math.sqrt(i + 0.6);
+  const p = polar(60, 52, round(r), i * 137.508);
+  return { x: p.x, y: p.y, i };
+}).reverse();
+
+function Lantana({ uid, color, center }: BloomProps) {
+  const mid = mix(center, color, 0.55);
+
+  return (
+    <>
+      <defs>
+        <radialGradient id={`${uid}-lan`} cx="38%" cy="32%" r="75%">
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.25" />
+          <stop offset="0.6" stopColor="#ffffff" stopOpacity="0" />
+          <stop offset="1" stopColor="#3a1f24" stopOpacity="0.18" />
+        </radialGradient>
+      </defs>
+      <Stem
+        y0={84}
+        lean={3}
+        width={3}
+        leaves={[
+          { t: 0.4, side: -1, length: 36, width: 13, tilt: 55, tone: "dark" },
+          { t: 0.6, side: 1, length: 34, width: 12, tilt: 58, tone: "light" },
+          { t: 0.82, side: -1, length: 26, width: 9, tilt: 60, tone: "dark" },
+        ]}
+      />
+      <g transform="translate(60 52) scale(1 0.9) translate(-60 -52)">
+        {LANTANA_FLORETS.map((f) => {
+          const fill = f.i < 9 ? center : f.i < 22 ? mid : color;
+          return (
+            <g key={f.i} transform={`translate(${f.x} ${f.y})`} fill={fill} stroke={darken(fill, 0.3)} strokeOpacity="0.25" strokeWidth="0.3">
+              <circle cx="0" cy="-2.3" r="2.5" />
+              <circle cx="2.3" cy="0" r="2.5" />
+              <circle cx="0" cy="2.3" r="2.5" />
+              <circle cx="-2.3" cy="0" r="2.5" />
+              <circle r="0.9" fill={darken(fill, 0.25)} stroke="none" />
+            </g>
+          );
+        })}
+        <circle cx="60" cy="52" r="27" fill={`url(#${uid}-lan)`} />
+      </g>
+    </>
+  );
+}
+
+/* Moonflower & morning glory: round funnels seen from the front */
+
+const HEART_LEAF =
+  "M0 0 C-14 -2 -18 -16 -6 -26 C-3 -29 -1 -31 0 -34 C1 -31 3 -29 6 -26 C18 -16 14 -2 0 0Z";
+
+function HeartLeaf({ x, y, angle, s, fill }: { x: number; y: number; angle: number; s: number; fill: string }) {
+  return (
+    <g transform={`translate(${x} ${y}) rotate(${angle}) scale(${s})`}>
+      <path d={HEART_LEAF} fill={fill} />
+      <path d={HEART_LEAF} fill="#1f3a2a" opacity="0.1" />
+      <g fill="none" stroke="#ffffff" strokeOpacity="0.3" strokeWidth="0.6" strokeLinecap="round">
+        <path d="M0 -1 L0 -29" />
+        <path d="M0 -8 C-6 -10 -10 -14 -11 -18" />
+        <path d="M0 -8 C6 -10 10 -14 11 -18" />
+      </g>
+    </g>
+  );
+}
+
+function Funnel({
+  uid,
+  color,
+  center,
+  band,
+  star,
+  r,
+  pointed,
+}: BloomProps & { band: string; star: string; r: number; pointed: boolean }) {
+  const id = `${uid}-funnel`;
+  const ang = (k: number) => -90 + 72 * k;
+  const edge = darken(color, 0.35);
+  const starPath =
+    Array.from({ length: 10 }, (_, k) => {
+      const p = polar(0, 0, k % 2 ? r * 0.2 : r * 0.62, -90 + 36 * k);
+      return `${k ? "L" : "M"}${p.x} ${p.y}`;
+    }).join(" ") + "Z";
+
+  return (
+    <>
+      <defs>
+        <radialGradient id={id} cx="50%" cy="50%" r="55%">
+          <stop offset="0" stopColor={center} />
+          <stop offset="0.3" stopColor={lighten(color, 0.45)} />
+          <stop offset="1" stopColor={mix(color, "#8a8fa8", 0.12)} />
+        </radialGradient>
+      </defs>
+      <Stem y0={86} lean={3} width={2.2} />
+      <HeartLeaf x={59} y={112} angle={-62} s={0.9} fill={GREEN.leafDark} />
+      <HeartLeaf x={61} y={138} angle={60} s={0.85} fill={GREEN.leaf} />
+      <path d="M61 104 C70 98 74 90 68 86 C64 84 62 88 66 90" fill="none" stroke={GREEN.stem} strokeWidth="1" strokeLinecap="round" />
+      <g transform="translate(60 54) scale(1 0.92)">
+        {pointed &&
+          Array.from({ length: 5 }, (_, k) => {
+            const t = polar(0, 0, r * 1.12, ang(k));
+            const b1 = polar(0, 0, r * 0.98, ang(k) - 16);
+            const b2 = polar(0, 0, r * 0.98, ang(k) + 16);
+            return (
+              <path
+                key={k}
+                d={`M${b1.x} ${b1.y} L${t.x} ${t.y} L${b2.x} ${b2.y}Z`}
+                fill={color}
+                stroke={edge}
+                strokeOpacity="0.3"
+                strokeWidth="0.6"
+                strokeLinejoin="round"
+              />
+            );
+          })}
+        <circle r={r} fill={`url(#${id})`} stroke={edge} strokeOpacity="0.3" strokeWidth="0.7" />
+        {Array.from({ length: 5 }, (_, k) => {
+          const p1 = polar(0, 0, r * 0.98, ang(k) - 9);
+          const p2 = polar(0, 0, r * 0.98, ang(k) + 9);
+          return <path key={k} d={`M0 0 L${p1.x} ${p1.y} L${p2.x} ${p2.y}Z`} fill={band} opacity="0.5" />;
+        })}
+        <g stroke="#ffffff" strokeOpacity="0.35" strokeWidth="0.6" strokeLinecap="round">
+          {Array.from({ length: 5 }, (_, k) => {
+            const p = polar(0, 0, r * 0.96, ang(k) + 36);
+            return <path key={k} d={`M0 0 L${p.x} ${p.y}`} />;
+          })}
+        </g>
+        <path d={starPath} fill={star} opacity="0.85" />
+        <circle r={round(r * 0.16)} fill={center} stroke={edge} strokeOpacity="0.25" strokeWidth="0.5" />
+      </g>
+    </>
+  );
+}
+
+/* Nasturtium: a round, shield-like leaf and a spurred flower */
+
+const NASTURTIUM_PETAL =
+  "M0 0 C-10 -6 -16 -18 -10 -26 C-6 -30 -2 -28 0 -26 C2 -28 6 -30 10 -26 C16 -18 10 -6 0 0Z";
+
+function NasturtiumLeaf({ x, y, r, fill, stalk }: { x: number; y: number; r: number; fill: string; stalk: string }) {
+  return (
+    <g>
+      <path d={stalk} fill="none" stroke={GREEN.stem} strokeWidth="1.3" strokeLinecap="round" />
+      <circle cx={x} cy={y} r={r} fill={fill} />
+      <circle cx={x} cy={y} r={r} fill="#1f3a2a" opacity="0.08" />
+      <g stroke="#ffffff" strokeOpacity="0.35" strokeWidth="0.6" strokeLinecap="round">
+        {Array.from({ length: 9 }, (_, i) => {
+          const p = polar(x, y, r * 0.92, i * 40);
+          return <path key={i} d={`M${x} ${y} L${p.x} ${p.y}`} />;
+        })}
+      </g>
+      <circle cx={x} cy={y} r={r} fill="none" stroke={darken(fill, 0.3)} strokeOpacity="0.3" strokeWidth="0.6" />
+    </g>
+  );
+}
+
+function Nasturtium({ uid, color, center }: BloomProps) {
+  const id = `${uid}-nas`;
+  const edge = darken(color, 0.4);
+
+  return (
+    <>
+      <defs>
+        <linearGradient id={id} x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor={mix(color, center, 0.45)} />
+          <stop offset="0.5" stopColor={color} />
+          <stop offset="1" stopColor={lighten(color, 0.2)} />
+        </linearGradient>
+      </defs>
+      <Stem y0={84} lean={3} width={2.4} />
+      <NasturtiumLeaf x={30} y={112} r={18} fill={GREEN.leafDark} stalk="M30 112 C40 124 52 130 60 134" />
+      <NasturtiumLeaf x={90} y={140} r={14} fill={GREEN.leaf} stalk="M90 140 C80 146 70 150 61 152" />
+      <path
+        d="M60 54 C74 50 88 56 94 72 C92 75 88 73 85 69 C79 60 70 59 60 58Z"
+        fill={darken(color, 0.15)}
+        stroke={edge}
+        strokeOpacity="0.3"
+        strokeWidth="0.6"
+      />
+      <g transform="translate(60 54) scale(1 0.94)">
+        {Array.from({ length: 5 }, (_, i) => (
+          <g key={i} transform={`rotate(${i * 72 + 12})`}>
+            <path d={NASTURTIUM_PETAL} fill={`url(#${id})`} stroke={edge} strokeOpacity="0.3" strokeWidth="0.6" strokeLinejoin="round" />
+            <g fill="none" stroke={center} strokeOpacity="0.55" strokeWidth="0.8" strokeLinecap="round">
+              <path d="M0 -3 L0 -14" />
+              <path d="M-2 -3 L-5 -12" />
+              <path d="M2 -3 L5 -12" />
+            </g>
+          </g>
+        ))}
+        <circle r="4" fill={mix(center, "#f6d46a", 0.4)} />
+        <circle r="1.6" fill="#8a9a2a" />
+      </g>
+    </>
+  );
+}
+
+/* Impatiens: flat, rounded petals and a long curved spur */
+
+const IMP_PETAL = "M0 0 C-14 -4 -18 -20 -8 -25 C-3 -27 3 -27 8 -25 C18 -20 14 -4 0 0Z";
+
+function ImpatiensFlower({
+  id,
+  x,
+  y,
+  s,
+  rot,
+  color,
+  center,
+}: {
+  id: string;
+  x: number;
+  y: number;
+  s: number;
+  rot: number;
+  color: string;
+  center: string;
+}) {
+  const edge = darken(color, 0.4);
+  return (
+    <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s})`}>
+      <path
+        d="M0 4 C4 16 14 24 24 24 C24 28 14 28 6 22 C0 17 -2 10 0 4Z"
+        fill={darken(color, 0.12)}
+        stroke={edge}
+        strokeOpacity="0.3"
+        strokeWidth="0.5"
+      />
+      {Array.from({ length: 5 }, (_, i) => (
+        <g key={i} transform={`rotate(${i * 72})`}>
+          <path d={IMP_PETAL} fill={`url(#${id})`} stroke={edge} strokeOpacity="0.28" strokeWidth="0.6" strokeLinejoin="round" />
+          <path d="M0 -4 L0 -19" stroke={edge} strokeOpacity="0.16" strokeWidth="0.5" strokeLinecap="round" />
+        </g>
+      ))}
+      <circle r="5" fill={center} opacity="0.9" />
+      <circle r="2" fill="#f6d46a" />
+    </g>
+  );
+}
+
+function Impatiens({ uid, color, center }: BloomProps) {
+  const id = `${uid}-imp`;
+
+  return (
+    <>
+      <defs>
+        <radialGradient id={id} cx="50%" cy="100%" r="110%">
+          <stop offset="0" stopColor={lighten(color, 0.6)} />
+          <stop offset="0.35" stopColor={color} />
+          <stop offset="1" stopColor={darken(color, 0.12)} />
+        </radialGradient>
+      </defs>
+      <Stem
+        y0={88}
+        lean={4}
+        width={2.8}
+        leaves={[
+          { t: 0.45, side: -1, length: 34, width: 10, tilt: 54, tone: "dark" },
+          { t: 0.62, side: 1, length: 32, width: 9, tilt: 56, tone: "light" },
+          { t: 0.8, side: -1, length: 26, width: 8, tilt: 60, tone: "dark" },
+        ]}
+      />
+      <path d="M60 90 Q74 90 84 76" fill="none" stroke={GREEN.stem} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M60 90 Q50 80 46 60" fill="none" stroke={GREEN.stem} strokeWidth="1.5" strokeLinecap="round" />
+      <ellipse cx="93" cy="38" rx="3.4" ry="5" fill={darken(color, 0.1)} />
+      <ImpatiensFlower id={id} x={84} y={76} s={0.62} rot={14} color={color} center={center} />
+      <ImpatiensFlower id={id} x={52} y={50} s={0.98} rot={-8} color={color} center={center} />
+    </>
+  );
+}
+
+/* Loosestrife: slim spikes of small five-petal flowers */
+
+function Loosestrife({ color, center }: Omit<BloomProps, "uid">) {
+  const spike = (x: number, y: number, rot: number, count: number, step: number, key: string) => (
+    <g key={key} transform={`translate(${x} ${y}) rotate(${rot})`}>
+      <path d={`M0 0 L0 ${-(count * step + 8)}`} stroke={GREEN.leafDark} strokeWidth="1.3" strokeLinecap="round" />
+      {Array.from({ length: count }, (_, i) => {
+        const t = i / (count - 1);
+        return (
+          <FivePetalFlower
+            key={i}
+            x={round((i % 2 ? 6 : -6) * (1 - t * 0.4))}
+            y={round(-6 - i * step)}
+            r={round(6.4 * (1 - t * 0.35))}
+            color={color}
+            center={center}
+            rotate={(i * 37) % 72}
+          />
+        );
+      })}
+      <ellipse cx="0" cy={-(count * step + 8)} rx="1.8" ry="3.4" fill={darken(color, 0.1)} />
+    </g>
+  );
+
+  return (
+    <>
+      <Stem
+        y0={102}
+        lean={2}
+        width={2.8}
+        leaves={[
+          { t: 0.35, side: -1, length: 40, width: 5, tilt: 40, tone: "dark" },
+          { t: 0.5, side: 1, length: 40, width: 5, tilt: 42, tone: "light" },
+          { t: 0.68, side: -1, length: 34, width: 4.5, tilt: 46, tone: "pale" },
+          { t: 0.84, side: 1, length: 30, width: 4, tilt: 48, tone: "dark" },
+        ]}
+      />
+      {spike(60, 128, -18, 5, 7.4, "l")}
+      {spike(60, 134, 20, 5, 7, "r")}
+      {spike(60, 102, 0, 12, 7.2, "m")}
+    </>
+  );
+}
+
+/* Hibiscus: five wide petals, a dark eye and a long stamen column */
+
+const HIBISCUS_PETAL =
+  "M0 0 C-22 -6 -30 -24 -18 -34 C-10 -40 -2 -34 0 -30 C2 -34 10 -40 18 -34 C30 -24 22 -6 0 0Z";
+
+function Hibiscus({ uid, color, center }: BloomProps) {
+  const id = `${uid}-hib`;
+  const edge = darken(color, 0.4);
+  const tip = { x: 90, y: 26 };
+
+  return (
+    <>
+      <defs>
+        <radialGradient id={id} cx="50%" cy="100%" r="105%">
+          <stop offset="0" stopColor={center} />
+          <stop offset="0.3" stopColor={mix(color, center, 0.4)} />
+          <stop offset="0.6" stopColor={color} />
+          <stop offset="1" stopColor={lighten(color, 0.18)} />
+        </radialGradient>
+      </defs>
+      <Stem
+        y0={82}
+        lean={4}
+        width={3.2}
+        leaves={[
+          { t: 0.42, side: -1, length: 38, width: 13, tilt: 52, tone: "dark" },
+          { t: 0.62, side: 1, length: 36, width: 12, tilt: 56, tone: "light" },
+          { t: 0.82, side: -1, length: 28, width: 9, tilt: 60, tone: "dark" },
+        ]}
+      />
+      <Calyx cy={78} />
+      <g transform="translate(60 54) scale(1 0.9)">
+        {Array.from({ length: 5 }, (_, i) => (
+          <g key={i} transform={`rotate(${i * 72 + 6})`}>
+            <path d={HIBISCUS_PETAL} fill={`url(#${id})`} stroke={edge} strokeOpacity="0.28" strokeWidth="0.7" strokeLinejoin="round" />
+            <g fill="none" stroke={edge} strokeOpacity="0.2" strokeWidth="0.6" strokeLinecap="round">
+              <path d="M0 -4 L0 -28" />
+              <path d="M-2 -4 C-8 -12 -12 -20 -13 -28" />
+              <path d="M2 -4 C8 -12 12 -20 13 -28" />
+            </g>
+          </g>
+        ))}
+        <circle r="5" fill={center} opacity="0.85" />
+      </g>
+      <path
+        d={`M60 54 Q74 44 ${tip.x} ${tip.y}`}
+        fill="none"
+        stroke="#f4b9a6"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+      />
+      <g fill="#f4c94a" stroke="#c9972b" strokeOpacity="0.5" strokeWidth="0.4">
+        {Array.from({ length: 8 }, (_, i) => {
+          const t = 0.45 + i * 0.07;
+          const px = round(60 + (tip.x - 60) * t + (i % 2 ? 2.4 : -2.4));
+          const py = round(54 + (tip.y - 54) * t + (i % 2 ? -2 : 2));
+          return <circle key={i} cx={px} cy={py} r="1.5" />;
+        })}
+      </g>
+      <g fill="#c2263f">
+        {Array.from({ length: 5 }, (_, i) => {
+          const p = polar(tip.x, tip.y, 3, i * 72);
+          return <circle key={i} cx={p.x} cy={p.y} r="1.5" />;
+        })}
+      </g>
+    </>
+  );
+}
+
+/* Lotus: layers of pointed petals, white at the base and pink at the tip */
+
+const LOTUS_PETAL = "M0 0 C-12 -6 -17 -24 0 -42 C17 -24 12 -6 0 0Z";
+
+function Lotus({ uid, color, center }: BloomProps) {
+  const id = `${uid}-lotus`;
+  const edge = darken(color, 0.4);
+  const tier = (angles: number[], oy: number, s: number, key: string) =>
+    angles.map((a) => (
+      <path
+        key={`${key}${a}`}
+        d={LOTUS_PETAL}
+        transform={`translate(60 ${oy}) rotate(${a}) scale(${s})`}
+        fill={`url(#${id})`}
+        stroke={edge}
+        strokeOpacity="0.28"
+        strokeWidth="0.6"
+        strokeLinejoin="round"
+      />
+    ));
+
+  return (
+    <>
+      <defs>
+        <linearGradient id={id} x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor="#fffdf6" />
+          <stop offset="0.35" stopColor={lighten(color, 0.55)} />
+          <stop offset="1" stopColor={color} />
+        </linearGradient>
+      </defs>
+      <Stem
+        y0={76}
+        lean={3}
+        width={3.4}
+        leaves={[
+          { t: 0.55, side: -1, length: 52, width: 24, tilt: 42, tone: "dark" },
+          { t: 0.74, side: 1, length: 46, width: 22, tilt: 46, tone: "light" },
+        ]}
+      />
+      {tier([-64, -32, 0, 32, 64], 72, 0.96, "b")}
+      {tier([-48, -16, 16, 48], 74, 0.9, "m")}
+      <ellipse cx="60" cy="62" rx="8" ry="4" fill={center} stroke="#c9972b" strokeOpacity="0.5" strokeWidth="0.5" />
+      <Dots cx={60} cy={60} count={7} radius={5} r={1.1} fill="#e0a92e" opacity={0.9} />
+      {tier([-24, 0, 24], 78, 0.84, "f")}
+    </>
+  );
+}
+
+/* Daffodil: six pointed petals behind a ruffled trumpet */
+
+const DAFFODIL_RIM =
+  Array.from({ length: 24 }, (_, k) => {
+    const p = polar(0, 0, 12.5 + (k % 2 ? 1.8 : -0.6), k * 15);
+    return `${k ? "L" : "M"}${p.x} ${p.y}`;
+  }).join(" ") + "Z";
+
+function Daffodil({ uid, color, center }: BloomProps) {
+  const id = `${uid}-daff`;
+  const edge = darken(color, 0.4);
+
+  return (
+    <>
+      <defs>
+        <linearGradient id={id} x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor={mix(color, center, 0.4)} />
+          <stop offset="0.4" stopColor={color} />
+          <stop offset="1" stopColor={lighten(color, 0.25)} />
+        </linearGradient>
+        <radialGradient id={`${id}-cup`} cx="50%" cy="50%" r="55%">
+          <stop offset="0" stopColor={darken(center, 0.2)} />
+          <stop offset="0.55" stopColor={center} />
+          <stop offset="1" stopColor={lighten(center, 0.2)} />
+        </radialGradient>
+      </defs>
+      <Stem
+        y0={86}
+        lean={2}
+        width={3.2}
+        leaves={[
+          { t: 0.5, side: -1, length: 84, width: 6, tilt: 9, tone: "pale" },
+          { t: 0.7, side: 1, length: 76, width: 6, tilt: 12, tone: "light" },
+        ]}
+      />
+      <ellipse cx="60" cy="82" rx="4.6" ry="7" fill="#c9b27a" stroke="#9c8650" strokeOpacity="0.4" strokeWidth="0.5" />
+      <g transform="translate(60 54) scale(1 0.94)">
+        {Array.from({ length: 6 }, (_, i) => (
+          <g key={i} transform={`rotate(${i * 60 + 30}) scale(${i % 2 ? 0.94 : 1})`}>
+            <path
+              d="M0 0 C-9 -6 -12 -20 0 -34 C12 -20 9 -6 0 0Z"
+              fill={`url(#${id})`}
+              stroke={edge}
+              strokeOpacity="0.28"
+              strokeWidth="0.6"
+              strokeLinejoin="round"
+            />
+            <path d="M0 -4 L0 -28" stroke={edge} strokeOpacity="0.16" strokeWidth="0.5" strokeLinecap="round" />
+          </g>
+        ))}
+        <path d={DAFFODIL_RIM} fill={`url(#${id}-cup)`} stroke={edge} strokeOpacity="0.3" strokeWidth="0.6" strokeLinejoin="round" />
+        <circle r="8" fill={darken(center, 0.3)} opacity="0.55" />
+        <Dots cx={0} cy={0} count={6} radius={4} r={1.1} fill="#f6d46a" opacity={0.9} />
+      </g>
+    </>
+  );
+}
+
+/* Rosemary: a woody sprig of needle leaves and tiny blue flowers */
+
+function Rosemary({ color, center }: Omit<BloomProps, "uid">) {
+  const nodes = 22;
+  const needle = "#6f8f6a";
+
+  return (
+    <>
+      <path
+        d="M60 178 C58 130 63 80 60 22"
+        fill="none"
+        stroke="#7a8a62"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+      {Array.from({ length: nodes }, (_, i) => {
+        const t = i / (nodes - 1);
+        const y = round(168 - i * 7);
+        const x = round(60 + 2 * Math.sin(t * 3));
+        const len = round(17 * (1 - t * 0.4));
+        return ([-1, 1] as const).map((side) => (
+          <g key={`${i}${side}`} transform={`translate(${x} ${y}) rotate(${side * 52})`}>
+            <ellipse cx="0" cy={round(-len / 2)} rx="1.5" ry={round(len / 2)} fill={i % 2 ? needle : "#80a07a"} />
+            <path d={`M0 -1 L0 ${-len + 2}`} stroke="#ffffff" strokeOpacity="0.25" strokeWidth="0.4" />
+          </g>
+        ));
+      })}
+      {[12, 14, 15, 17, 18, 19, 20].map((i, k) => {
+        const t = i / (nodes - 1);
+        const y = round(168 - i * 7);
+        const side = k % 2 ? 1 : -1;
+        const x = round(60 + 2 * Math.sin(t * 3) + side * 5);
+        return (
+          <g key={i} transform={`translate(${x} ${y}) rotate(${side * 40})`}>
+            <ellipse cx="0" cy="-1" rx="3.3" ry="2" fill={color} stroke={darken(color, 0.35)} strokeOpacity="0.3" strokeWidth="0.3" />
+            <ellipse cx="0" cy="1.6" rx="2.2" ry="1.4" fill={lighten(color, 0.3)} />
+            <circle cx="0" cy="-1.6" r="0.7" fill={center} />
+          </g>
+        );
+      })}
+    </>
+  );
+}
+
+/* Orchid: wide round petals, a small lip and an arching spray */
+
+function OrchidBloom({
+  id,
+  x,
+  y,
+  s,
+  rot,
+  color,
+  center,
+}: {
+  id: string;
+  x: number;
+  y: number;
+  s: number;
+  rot: number;
+  color: string;
+  center: string;
+}) {
+  const edge = darken(color, 0.3);
+  const common = { fill: `url(#${id})`, stroke: edge, strokeOpacity: 0.3, strokeWidth: 0.6 };
+
+  return (
+    <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s})`}>
+      <ellipse cx="-9" cy="14" rx="8.5" ry="14" transform="rotate(24 -9 14)" {...common} />
+      <ellipse cx="9" cy="14" rx="8.5" ry="14" transform="rotate(-24 9 14)" {...common} />
+      <ellipse cx="0" cy="-18" rx="9" ry="14.5" {...common} />
+      <ellipse cx="-16" cy="-2" rx="18" ry="13.5" transform="rotate(-12 -16 -2)" {...common} />
+      <ellipse cx="16" cy="-2" rx="18" ry="13.5" transform="rotate(12 16 -2)" {...common} />
+      <g fill="none" stroke={center} strokeOpacity="0.3" strokeWidth="0.5" strokeLinecap="round">
+        <path d="M-6 -2 C-14 -4 -22 -4 -30 -2" />
+        <path d="M6 -2 C14 -4 22 -4 30 -2" />
+        <path d="M0 -8 L0 -28" />
+      </g>
+      <path d="M0 -3 C-8 -1 -10 9 -5 14 C-2 18 2 18 5 14 C10 9 8 -1 0 -3Z" fill={center} stroke={darken(center, 0.3)} strokeOpacity="0.3" strokeWidth="0.5" />
+      <ellipse cx="0" cy="5" rx="3" ry="4.5" fill="#f2c84b" />
+      <ellipse cx="0" cy="-6" rx="3.4" ry="4.2" fill="#ffffff" stroke={edge} strokeOpacity="0.25" strokeWidth="0.4" />
+      <circle cx="0" cy="-6.5" r="1" fill="#f2c84b" />
+    </g>
+  );
+}
+
+function Orchid({ uid, color, center }: BloomProps) {
+  const id = `${uid}-orch`;
+
+  return (
+    <>
+      <defs>
+        <radialGradient id={id} cx="50%" cy="60%" r="70%">
+          <stop offset="0" stopColor={mix(color, center, 0.22)} />
+          <stop offset="0.45" stopColor={lighten(color, 0.3)} />
+          <stop offset="1" stopColor={color} />
+        </radialGradient>
+      </defs>
+      <Stem
+        y0={92}
+        lean={3}
+        width={2.6}
+        leaves={[
+          { t: 0.55, side: -1, length: 48, width: 14, tilt: 62, tone: "dark" },
+          { t: 0.78, side: 1, length: 44, width: 13, tilt: 64, tone: "light" },
+        ]}
+      />
+      <g fill="none" stroke={GREEN.stem} strokeWidth="1.8" strokeLinecap="round">
+        <path d="M60 94 C60 76 78 70 90 62" />
+        <path d="M70 90 Q82 96 91 88" />
+      </g>
+      <circle cx="94" cy="58" r="3.4" fill={lighten(color, 0.1)} stroke={darken(color, 0.3)} strokeOpacity="0.3" strokeWidth="0.5" />
+      <circle cx="100" cy="68" r="2.6" fill={lighten(color, 0.1)} stroke={darken(color, 0.3)} strokeOpacity="0.3" strokeWidth="0.5" />
+      <OrchidBloom id={id} x={92} y={88} s={0.6} rot={14} color={color} center={center} />
+      <OrchidBloom id={id} x={54} y={50} s={1} rot={-6} color={color} center={center} />
+    </>
+  );
+}
+
+/* Snowdrop: nodding, teardrop-shaped petals with a green mark */
+
+function SnowdropFlower({
+  x,
+  y,
+  rot,
+  s,
+  color,
+  green,
+}: {
+  x: number;
+  y: number;
+  rot: number;
+  s: number;
+  color: string;
+  green: string;
+}) {
+  const edge = darken(color, 0.4);
+  const petal = "M0 0 C-7 6 -9 22 0 34 C9 22 7 6 0 0Z";
+  const props = { fill: color, stroke: edge, strokeOpacity: 0.3, strokeWidth: 0.6, strokeLinejoin: "round" as const };
+
+  return (
+    <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s})`}>
+      <ellipse cx="0" cy="-3" rx="3.6" ry="4.2" fill={green} />
+      <path d={petal} transform="rotate(-26)" {...props} />
+      <path d={petal} transform="rotate(26)" {...props} />
+      <path d={petal} {...props} />
+      <path d="M0 4 L0 26" stroke={edge} strokeOpacity="0.16" strokeWidth="0.5" strokeLinecap="round" />
+      <path d="M-5 13 C-5 23 5 23 5 13 C2 15 -2 15 -5 13Z" fill="#ffffff" stroke={edge} strokeOpacity="0.3" strokeWidth="0.5" />
+      <path d="M-3.2 19 Q0 24 3.2 19 Q0 21 -3.2 19Z" fill={green} />
+    </g>
+  );
+}
+
+function Snowdrop({ color, center }: Omit<BloomProps, "uid">) {
+  return (
+    <>
+      <Stem
+        y0={72}
+        lean={2}
+        width={2.2}
+        leaves={[
+          { t: 0.55, side: -1, length: 74, width: 6, tilt: 12, tone: "pale" },
+          { t: 0.7, side: 1, length: 66, width: 6, tilt: 14, tone: "light" },
+        ]}
+      />
+      <g fill="none" stroke={GREEN.stem} strokeWidth="1.8" strokeLinecap="round">
+        <path d="M60 74 C60 58 70 48 82 44" />
+        <path d="M60 80 Q48 74 40 80" />
+      </g>
+      <SnowdropFlower x={40} y={80} rot={-8} s={0.78} color={color} green={center} />
+      <SnowdropFlower x={82} y={44} rot={8} s={1.05} color={color} green={center} />
+    </>
+  );
+}
+
+/* Bluebell: a one-sided, nodding raceme of narrow bells with curled tips */
+
+const BLUEBELL_SHAPE =
+  "M0 0 C-4 2 -6 10 -6 18 C-7 22 -10 24 -12 23 C-9 22 -8 20 -4 21 L4 21 C8 20 9 22 12 23 C10 24 7 22 6 18 C6 10 4 2 0 0Z";
+
+function Bluebell({ uid, color, center }: BloomProps) {
+  const id = `${uid}-blue`;
+  const p0: Pt = [60, 178];
+  const p1: Pt = [60, 110];
+  const p2: Pt = [52, 36];
+  const p3: Pt = [92, 36];
+  const edge = darken(color, 0.4);
+
+  return (
+    <>
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor={darken(color, 0.1)} />
+          <stop offset="1" stopColor={lighten(color, 0.25)} />
+        </linearGradient>
+      </defs>
+      <Stem
+        y0={120}
+        lean={2}
+        width={2.2}
+        leaves={[
+          { t: 0.4, side: -1, length: 70, width: 7, tilt: 14, tone: "dark" },
+          { t: 0.62, side: 1, length: 62, width: 7, tilt: 18, tone: "light" },
+        ]}
+      />
+      <path
+        d={`M${p0[0]} ${p0[1]} C${p1[0]} ${p1[1]} ${p2[0]} ${p2[1]} ${p3[0]} ${p3[1]}`}
+        fill="none"
+        stroke={GREEN.stem}
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      {[0.52, 0.6, 0.68, 0.76, 0.84, 0.92].map((t, i) => {
+        const [x, y] = cubic(p0, p1, p2, p3, t);
+        const s = round(1.0 - i * 0.07);
+        return (
+          <g key={t}>
+            <path
+              d={`M${x} ${y} Q${round(x + 3)} ${round(y + 2)} ${round(x + 5)} ${round(y + 5)}`}
+              fill="none"
+              stroke={GREEN.stem}
+              strokeWidth="0.9"
+              strokeLinecap="round"
+            />
+            <g transform={`translate(${round(x + 5)} ${round(y + 5)}) rotate(${-6 + i * 2}) scale(${s})`}>
+              <path d={BLUEBELL_SHAPE} fill={`url(#${id})`} stroke={edge} strokeOpacity="0.3" strokeWidth="0.5" strokeLinejoin="round" />
+              <path d="M-2 3 C-3 9 -3 14 -3 19 M2 3 C3 9 3 14 3 19" fill="none" stroke={edge} strokeOpacity="0.2" strokeWidth="0.4" />
+            </g>
+          </g>
+        );
+      })}
+      <ellipse cx="93" cy="33" rx="2" ry="3.2" fill={lighten(center, 0.1)} stroke={edge} strokeOpacity="0.3" strokeWidth="0.4" />
+    </>
+  );
+}
+
+/* Carnation: rings of frilly, toothed petals in a green calyx */
+
+const CARNATION_PETAL =
+  "M0 0 C-7 -3 -11 -9 -10 -15 L-7.5 -13.5 L-6.5 -17.5 L-4 -14.5 L-2.5 -18.5 L0 -15 L2.5 -18.5 L4 -14.5 L6.5 -17.5 L7.5 -13.5 L10 -15 C11 -9 7 -3 0 0Z";
+
+const CARNATION_RINGS = [
+  { n: 11, len: 28, off: 0 },
+  { n: 10, len: 23, off: 14 },
+  { n: 9, len: 18, off: 5 },
+  { n: 7, len: 12, off: 20 },
+];
+
+function Carnation({ uid, color, center }: BloomProps) {
+  return (
+    <>
+      <defs>
+        {CARNATION_RINGS.map((_, i) => {
+          const tone = mix(color, center, i * 0.18);
+          return (
+            <linearGradient key={i} id={`${uid}-carn-${i}`} x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stopColor={darken(tone, 0.25)} />
+              <stop offset="0.6" stopColor={tone} />
+              <stop offset="1" stopColor={lighten(tone, 0.28)} />
+            </linearGradient>
+          );
+        })}
+      </defs>
+      <Stem
+        y0={88}
+        lean={3}
+        width={2.6}
+        leaves={[
+          { t: 0.4, side: -1, length: 46, width: 4, tilt: 40, tone: "pale" },
+          { t: 0.62, side: 1, length: 44, width: 4, tilt: 44, tone: "pale" },
+          { t: 0.84, side: -1, length: 36, width: 3.6, tilt: 48, tone: "pale" },
+        ]}
+      />
+      <g fill={GREEN.leaf} stroke={GREEN.leafDark} strokeOpacity="0.5" strokeWidth="0.5">
+        <ellipse cx="60" cy="118" rx="4" ry="2.6" />
+        <ellipse cx="60" cy="148" rx="4" ry="2.6" />
+      </g>
+      <path
+        d="M51 70 C51 82 54 88 60 91 C66 88 69 82 69 70Z"
+        fill={GREEN.leafDark}
+        stroke={GREEN.leafDark}
+        strokeOpacity="0.5"
+        strokeWidth="0.6"
+      />
+      <path d="M55 74 L56 88 M60 74 L60 90 M65 74 L64 88" stroke={GREEN.leafPale} strokeOpacity="0.45" strokeWidth="0.6" fill="none" />
+      <g transform="translate(60 56) scale(1 0.92)">
+        {CARNATION_RINGS.map((ring, i) => {
+          const sc = round(ring.len / 18.5);
+          const tone = mix(color, center, i * 0.18);
+          return (
+            <g key={i}>
+              {Array.from({ length: ring.n }, (_, k) => (
+                <path
+                  key={k}
+                  d={CARNATION_PETAL}
+                  transform={`rotate(${round(ring.off + (360 / ring.n) * k)}) scale(${sc})`}
+                  fill={`url(#${uid}-carn-${i})`}
+                  stroke={darken(tone, 0.35)}
+                  strokeOpacity="0.3"
+                  strokeWidth="0.6"
+                  strokeLinejoin="round"
+                />
+              ))}
+            </g>
+          );
+        })}
+        <circle r="3.4" fill={darken(center, 0.2)} opacity="0.7" />
+        <Dots cx={0} cy={0} count={6} radius={2.2} r={0.9} fill={lighten(color, 0.5)} opacity={0.7} />
+      </g>
+    </>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
 /*  FlowerShape / FlowerArt: pick the right species illustration              */
 /*  FlowerShape returns raw SVG content (used inside the bouquet as well).    */
 /* -------------------------------------------------------------------------- */
@@ -1881,6 +3111,86 @@ function FlowerShape({ flower }: { flower: Flower }) {
       break;
     case "poppy":
       art = <Poppy uid={uid} color={color} center={center} />;
+      break;
+    case "bellflower":
+      art = <Bellflower uid={uid} color={color} center={center} />;
+      break;
+    case "chinaRose":
+      art = <ChinaRose uid={uid} color={color} center={center} />;
+      break;
+    case "salvia":
+      art = <Salvia color={color} center={center} />;
+      break;
+    case "primrose":
+      art = <Primrose uid={uid} color={color} center={center} />;
+      break;
+    case "hyacinth":
+      art = <Hyacinth color={color} center={center} />;
+      break;
+    case "valley":
+      art = <LilyOfTheValley uid={uid} color={color} center={center} />;
+      break;
+    case "lantana":
+      art = <Lantana uid={uid} color={color} center={center} />;
+      break;
+    case "moonflower":
+      art = (
+        <Funnel
+          uid={uid}
+          color={color}
+          center={center}
+          band="#bcd6a8"
+          star="#e6f0d6"
+          r={31}
+          pointed
+        />
+      );
+      break;
+    case "morningglory":
+      art = (
+        <Funnel
+          uid={uid}
+          color={color}
+          center={center}
+          band="#3a4fb8"
+          star="#ffffff"
+          r={27}
+          pointed={false}
+        />
+      );
+      break;
+    case "nasturtium":
+      art = <Nasturtium uid={uid} color={color} center={center} />;
+      break;
+    case "impatiens":
+      art = <Impatiens uid={uid} color={color} center={center} />;
+      break;
+    case "loosestrife":
+      art = <Loosestrife color={color} center={center} />;
+      break;
+    case "hibiscus":
+      art = <Hibiscus uid={uid} color={color} center={center} />;
+      break;
+    case "lotus":
+      art = <Lotus uid={uid} color={color} center={center} />;
+      break;
+    case "daffodil":
+      art = <Daffodil uid={uid} color={color} center={center} />;
+      break;
+    case "rosemary":
+      art = <Rosemary color={color} center={center} />;
+      break;
+    case "orchid":
+      art = <Orchid uid={uid} color={color} center={center} />;
+      break;
+    case "snowdrop":
+      art = <Snowdrop color={color} center={center} />;
+      break;
+    case "bluebell":
+      art = <Bluebell uid={uid} color={color} center={center} />;
+      break;
+    case "carnation":
+      art = <Carnation uid={uid} color={color} center={center} />;
       break;
   }
 
@@ -1995,6 +3305,17 @@ const SPECIES_SCALE: Partial<Record<Species, number>> = {
   lily: 0.96,
   dahlia: 1.0,
   anemone: 1.04,
+  bellflower: 1.05,
+  hyacinth: 1.05,
+  loosestrife: 1.05,
+  salvia: 1.05,
+  rosemary: 1.1,
+  valley: 1.1,
+  snowdrop: 1.15,
+  bluebell: 1.05,
+  hibiscus: 0.92,
+  lotus: 0.95,
+  moonflower: 0.95,
 };
 
 type Placement = {
@@ -2329,18 +3650,27 @@ function OliveSprig({ length, c }: { length: number; c: number }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Butterflies: soft light blue and light purple, resting on thin wires      */
+/* -------------------------------------------------------------------------- */
+/*  Butterflies: the two colours are chosen by the person (colour wheel).     */
 /* -------------------------------------------------------------------------- */
 
-type ButterflyTone = "blue" | "purple";
+type ButterflyPalette = { wing: string; wingDeep: string; spot: string; edge: string };
+type ButterflyPair = [ButterflyPalette, ButterflyPalette];
 
-const BUTTERFLY_TONES: Record<
-  ButterflyTone,
-  { wing: string; wingDeep: string; spot: string; edge: string }
-> = {
-  blue: { wing: "#b7d3f3", wingDeep: "#8fb5e6", spot: "#eaf3fd", edge: "#6f94c9" },
-  purple: { wing: "#cfc0ec", wingDeep: "#a994da", spot: "#f2ecfb", edge: "#8a74bd" },
-};
+function paletteFromColor(color: string): ButterflyPalette {
+  return {
+    wing: lighten(color, 0.25),
+    wingDeep: color,
+    spot: lighten(color, 0.8),
+    edge: darken(color, 0.35),
+  };
+}
+
+function butterflyPair(colors: ButterflyColors): ButterflyPair {
+  return [paletteFromColor(colors.c1), paletteFromColor(colors.c2)];
+}
+
+const ButterflyContext = createContext<ButterflyPair>(butterflyPair(DEFAULT_BUTTERFLY_COLORS));
 
 function Butterfly({
   x,
@@ -2353,9 +3683,9 @@ function Butterfly({
   y: number;
   scale: number;
   rotate: number;
-  tone: ButterflyTone;
+  tone: 0 | 1;
 }) {
-  const c = BUTTERFLY_TONES[tone];
+  const c = useContext(ButterflyContext)[tone];
 
   // the right-hand wings; the left-hand ones are the same shapes mirrored
   const wings = (
@@ -2410,8 +3740,8 @@ function ButterflySprig({ length, c }: { length: number; c: number }) {
   const tip = sprigPoint(1, c, length);
   const mid = sprigPoint(0.58, c, length);
   const side = c > 0 ? 1 : -1;
-  const main: ButterflyTone = c > 0 ? "blue" : "purple";
-  const small: ButterflyTone = c > 0 ? "purple" : "blue";
+  const main: 0 | 1 = c > 0 ? 0 : 1;
+  const small: 0 | 1 = c > 0 ? 1 : 0;
 
   return (
     <g>
@@ -2650,12 +3980,14 @@ function BouquetArt({
   ribbon,
   fillers,
   wrapStyle,
+  butterflyColors,
 }: {
   items: BouquetItem[];
   paper: string;
   ribbon: string;
   fillers: FillerId[];
   wrapStyle: WrapStyle;
+  butterflyColors: ButterflyColors;
 }) {
   const uid = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const placements = layoutBouquet(items);
@@ -2776,14 +4108,16 @@ function BouquetArt({
         ))}
       </g>
 
-      {/* chosen filler plants */}
-      {activeFillers.map((filler) => (
-        <g key={filler.id} className="filler-in">
-          {FILLER_SPRIGS[filler.id].map((spec, i) => (
-            <FillerSprig key={i} kind={filler.id} spec={spec} />
-          ))}
-        </g>
-      ))}
+            {/* chosen filler plants */}
+        <ButterflyContext.Provider value={butterflyPair(butterflyColors)}>
+        {activeFillers.map((filler) => (
+          <g key={filler.id} className="filler-in">
+            {FILLER_SPRIGS[filler.id].map((spec, i) => (
+              <FillerSprig key={i} kind={filler.id} spec={spec} />
+            ))}
+          </g>
+        ))}
+      </ButterflyContext.Provider>
 
       {/* flowers */}
       <BareStemContext.Provider value={true}>
@@ -3004,6 +4338,7 @@ function BouquetStage({
   paper,
   ribbon,
   fillers,
+  butterflyColors,
   caption,
 }: {
   items: BouquetItem[];
@@ -3011,11 +4346,19 @@ function BouquetStage({
   paper: string;
   ribbon: string;
   fillers: FillerId[];
+  butterflyColors: ButterflyColors;
   caption: string;
 }) {
   return (
     <figure className="bouquet-stage">
-      <BouquetArt items={items} paper={paper} ribbon={ribbon} fillers={fillers} wrapStyle={wrapStyle} />
+      <BouquetArt
+        items={items}
+        paper={paper}
+        ribbon={ribbon}
+        fillers={fillers}
+        wrapStyle={wrapStyle}
+        butterflyColors={butterflyColors}
+      />
       <figcaption className="bouquet-caption">{caption}</figcaption>
     </figure>
   );
@@ -3168,6 +4511,77 @@ function FillerGroup({
   );
 }
 
+const BUTTERFLY_PRESETS: { label: string; c1: string; c2: string }[] = [
+  { label: "Sky & lilac", c1: "#9ec5f5", c2: "#c4aef0" },
+  { label: "Blush & peach", c1: "#f2a5b8", c2: "#f6c49a" },
+  { label: "Gold & cream", c1: "#e8c25a", c2: "#f6ead0" },
+  { label: "Mint & aqua", c1: "#8fd3b8", c2: "#9fd6ea" },
+  { label: "Plum & rose", c1: "#a470b8", c2: "#e58fb0" },
+  { label: "White & silver", c1: "#f4f4f4", c2: "#b9c2cc" },
+];
+
+function ButterflyColorGroup({
+  value,
+  onChange,
+}: {
+  value: ButterflyColors;
+  onChange: (next: ButterflyColors) => void;
+}) {
+  return (
+    <fieldset className="option-group">
+      <legend className="panel-title">Butterfly colours</legend>
+
+      <div className="bf-pickers">
+        <label className="bf-picker">
+          <input
+            type="color"
+            value={value.c1}
+            onChange={(event) => onChange({ ...value, c1: event.target.value })}
+            aria-label="Butterfly colour 1"
+          />
+          <span className="bf-picker-text">
+            <span className="bf-picker-name">Colour 1</span>
+            <span className="bf-picker-hex">{value.c1.toUpperCase()}</span>
+          </span>
+        </label>
+
+        <label className="bf-picker">
+          <input
+            type="color"
+            value={value.c2}
+            onChange={(event) => onChange({ ...value, c2: event.target.value })}
+            aria-label="Butterfly colour 2"
+          />
+          <span className="bf-picker-text">
+            <span className="bf-picker-name">Colour 2</span>
+            <span className="bf-picker-hex">{value.c2.toUpperCase()}</span>
+          </span>
+        </label>
+      </div>
+
+      <div className="bf-presets" role="group" aria-label="Butterfly colour presets">
+        {BUTTERFLY_PRESETS.map((preset) => (
+          <button
+            key={preset.label}
+            type="button"
+            className="bf-preset"
+            title={preset.label}
+            aria-label={`Use ${preset.label}`}
+            onClick={() => onChange({ c1: preset.c1, c2: preset.c2 })}
+          >
+            <span style={{ background: preset.c1 }} />
+            <span style={{ background: preset.c2 }} />
+          </button>
+        ))}
+      </div>
+
+      <p className="panel-note panel-note-tight">
+        Shown when Butterflies is chosen above. Pick any two colours that go with your flowers.
+      </p>
+    </fieldset>
+  );
+}
+
 function BouquetBuilder({
   items,
   distinct,
@@ -3177,6 +4591,8 @@ function BouquetBuilder({
   paperId,
   ribbonId,
   fillers,
+  butterflyColors,
+  onButterflyColorsChange,
   onStyleChange,
   onPaperChange,
   onRibbonChange,
@@ -3196,6 +4612,8 @@ function BouquetBuilder({
   paperId: PaperId;
   ribbonId: RibbonId;
   fillers: FillerId[];
+  butterflyColors: ButterflyColors;
+  onButterflyColorsChange: (next: ButterflyColors) => void;
   onStyleChange: (id: WrapStyle) => void;
   onPaperChange: (id: PaperId) => void;
   onRibbonChange: (id: RibbonId) => void;
@@ -3216,7 +4634,7 @@ function BouquetBuilder({
     <section className="bouquet-section" aria-labelledby="bouquet-title">
       <div className="section-heading">
         <div>
-          <p className="eyebrow">Your bouquet · No. 02</p>
+          <p className="eyebrow">Your bouquet · No. 03</p>
           <h2 id="bouquet-title" className="bouquet-heading" ref={headingRef} tabIndex={-1}>
             Gathered with care.
           </h2>
@@ -3233,6 +4651,7 @@ function BouquetBuilder({
           paper={paper.color}
           ribbon={ribbon.color}
           fillers={fillers}
+          butterflyColors={butterflyColors}
           caption={describeBouquet(count, wrapStyle, paper.label, ribbon.label, fillerNamesOf(fillers))}
         />
 
@@ -3269,6 +4688,11 @@ function BouquetBuilder({
 
           <div className="panel-block">
             <FillerGroup selected={fillers} onToggle={onFillerToggle} />
+            {fillers.includes("butterflies") && (
+              <div className="bf-block">
+                <ButterflyColorGroup value={butterflyColors} onChange={onButterflyColorsChange} />
+              </div>
+            )}
           </div>
 
           <div className="panel-block">
@@ -3401,6 +4825,7 @@ function NoteStudio({
   paperId,
   ribbonId,
   fillers,
+  butterflyColors,
   to,
   from,
   message,
@@ -3422,6 +4847,7 @@ function NoteStudio({
   paperId: PaperId;
   ribbonId: RibbonId;
   fillers: FillerId[];
+  butterflyColors: ButterflyColors;
   to: string;
   from: string;
   message: string;
@@ -3446,7 +4872,7 @@ function NoteStudio({
     <section className="bouquet-section" aria-labelledby="note-title">
       <div className="section-heading">
         <div>
-          <p className="eyebrow">Your note · No. 03</p>
+          <p className="eyebrow">Your note · No. 04</p>
           <h2 id="note-title" className="bouquet-heading" ref={headingRef} tabIndex={-1}>
             Say it sweetly.
           </h2>
@@ -3535,6 +4961,7 @@ function NoteStudio({
               paper={paper.color}
               ribbon={ribbon.color}
               fillers={fillers}
+              butterflyColors={butterflyColors}
               caption={describeBouquet(items.length, wrapStyle, paper.label, ribbon.label, fillerNamesOf(fillers))}
             />
             <NoteCard to={to} from={from} message={message} color={note.color} preview />
@@ -3590,6 +5017,7 @@ function GiftView({
           paper={paper.color}
           ribbon={ribbon.color}
           fillers={gift.fillers}
+          butterflyColors={gift.butterflyColors}
           caption={describeBouquet(items.length, gift.style, paper.label, ribbon.label, fillerNamesOf(gift.fillers))}
         />
         <NoteCard to={gift.to} from={gift.from} message={gift.message} color={note.color} />
@@ -3619,18 +5047,21 @@ function WordmarkIcon() {
   );
 }
 
+/* a tall stem with a proper, generous bloom on top and two smaller ones below */
 function HeroSprig({ className }: { className: string }) {
   const p0: Pt = [80, 380];
   const p1: Pt = [62, 290];
   const p2: Pt = [106, 190];
-  const p3: Pt = [90, 24];
+  const p3: Pt = [90, 36];
   const d = `M${p0[0]} ${p0[1]} C${p1[0]} ${p1[1]} ${p2[0]} ${p2[1]} ${p3[0]} ${p3[1]}`;
+  const [bx1, by1] = cubic(p0, p1, p2, p3, 0.84);
+  const [bx2, by2] = cubic(p0, p1, p2, p3, 0.93);
 
   return (
     <svg className={`hero-sprig ${className}`} viewBox="0 0 160 380" aria-hidden="true" focusable="false">
-      <path d={d} fill="none" stroke={GREEN.stem} strokeWidth="2.4" strokeLinecap="round" />
-      {Array.from({ length: 9 }, (_, i) => {
-        const [x, y] = cubic(p0, p1, p2, p3, round(0.12 + i * 0.095));
+      <path d={d} fill="none" stroke={GREEN.stem} strokeWidth="2.6" strokeLinecap="round" />
+      {Array.from({ length: 8 }, (_, i) => {
+        const [x, y] = cubic(p0, p1, p2, p3, round(0.1 + i * 0.09));
         const side = i % 2 === 0 ? 1 : -1;
         return (
           <Leaf
@@ -3638,14 +5069,20 @@ function HeroSprig({ className }: { className: string }) {
             x={x}
             y={y}
             angle={side * round(52 - i * 1.5)}
-            length={round(54 - i * 3.6)}
-            width={round(13 - i * 0.8)}
+            length={round(54 - i * 3.4)}
+            width={round(13 - i * 0.7)}
             fill={i % 3 === 0 ? GREEN.leafDark : i % 3 === 1 ? GREEN.leaf : GREEN.leafPale}
           />
         );
       })}
-      <FivePetalFlower x={90} y={20} r={8} color="#e9b3bb" center="#e6c66c" rotate={12} />
-      <ellipse cx="78" cy="48" rx="3.2" ry="5" fill="#d99aa4" transform="rotate(-24 78 48)" />
+      <g fill="none" stroke={GREEN.stem} strokeWidth="1.6" strokeLinecap="round">
+        <path d={`M${bx1} ${by1} Q${round(bx1 - 20)} ${round(by1 - 14)} 52 96`} />
+        <path d={`M${bx2} ${by2} Q${round(bx2 + 18)} ${round(by2 - 2)} 128 60`} />
+      </g>
+      <FivePetalFlower x={52} y={96} r={15} color="#f1d58a" center="#d99a3a" rotate={-10} />
+      <FivePetalFlower x={128} y={60} r={13} color="#c9b8e8" center="#e6c66c" rotate={20} />
+      <ellipse cx="74" cy="82" rx="3" ry="5" fill="#d99aa4" transform="rotate(-30 74 82)" />
+      <FivePetalFlower x={90} y={34} r={24} color="#eaa6b4" center="#e6c66c" rotate={12} />
     </svg>
   );
 }
@@ -3855,6 +5292,98 @@ function plantStyle(flower: Flower, index: number): CSSProperties {
   } as CSSProperties;
 }
 
+/* One flower field: a heading and a composed meadow of its own. */
+function FlowerField({
+  field,
+  counts,
+  isFull,
+  onAdd,
+}: {
+  field: Field;
+  counts: Map<number, number>;
+  isFull: boolean;
+  onAdd: (id: number) => void;
+}) {
+  return (
+    <section className="garden-section" id={field.id}>
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">The flower field · No. {field.no}</p>
+          <h2>{field.title}</h2>
+        </div>
+        <p className="field-instruction">
+          {field.lines[0]}
+          <br />
+          {field.lines[1]}
+        </p>
+      </div>
+
+      <div className="meadow" style={{ "--mh": String(field.mobileH) } as CSSProperties}>
+        <MeadowBackdrop />
+        <div className="sun-wash" aria-hidden="true" />
+        <div className="sun-rays" aria-hidden="true" />
+        <Specks />
+        <Motes />
+
+        <div className="meadow-note meadow-note-top" aria-hidden="true">
+          <span>{field.fig}</span>
+          <span>{field.name}</span>
+        </div>
+
+        {field.flowers.map((flower, index) => (
+          <Tuft key={`tuft-${flower.id}`} seed={flower.id} style={plantStyle(flower, index)} />
+        ))}
+
+        {field.flowers.map((flower, index) => {
+          const count = counts.get(flower.id) ?? 0;
+          const isPicked = count > 0;
+
+          return (
+            <button
+              key={flower.id}
+              type="button"
+              className={`flower${isPicked ? " flower-picked" : ""}`}
+              style={plantStyle(flower, index)}
+              onClick={() => onAdd(flower.id)}
+              aria-disabled={isFull}
+              aria-label={`Add ${flower.name} (${flower.botanicalName}) to your bouquet${
+                isPicked ? `, ${count} added so far` : ""
+              }`}
+              title={`${flower.name} · ${flower.botanicalName}`}
+            >
+              <span className="flower-halo" aria-hidden="true" />
+              <span className="flower-art" aria-hidden="true">
+                <span className="flower-sway">
+                  <FlowerArt flower={flower} />
+                </span>
+              </span>
+              {isPicked && (
+                <span key={count} className="picked-mark" aria-hidden="true">
+                  {count > 1 ? count : "✓"}
+                </span>
+              )}
+              <span className="flower-label" aria-hidden="true">
+                {flower.name}
+              </span>
+            </button>
+          );
+        })}
+
+        <GrassFringe />
+
+        <div className="meadow-note meadow-note-bottom" aria-hidden="true">
+          <span>{field.flowers.length} varieties</span>
+          <span>Growing in their own time</span>
+        </div>
+      </div>
+
+      <a className="field-next" href={field.next.href}>
+        {field.next.label}
+      </a>
+    </section>
+  );
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Page                                                                      */
 /* -------------------------------------------------------------------------- */
@@ -3867,6 +5396,7 @@ export default function Home() {
   const [paperId, setPaperId] = useState<PaperId>("ivory");
   const [ribbonId, setRibbonId] = useState<RibbonId>("pink");
   const [fillers, setFillers] = useState<FillerId[]>(["eucalyptus"]);
+  const [butterflyColors, setButterflyColors] = useState<ButterflyColors>(DEFAULT_BUTTERFLY_COLORS);
 
   // the note
   const [toName, setToName] = useState("");
@@ -3995,6 +5525,7 @@ export default function Home() {
           to: toName.trim(),
           from: fromName.trim(),
           message: message.trim(),
+          butterflyColors,
         })}`
       : "";
 
@@ -4008,7 +5539,7 @@ export default function Home() {
       <nav className="topbar" aria-label="Main">
         <a href="#" className="wordmark">
           <WordmarkIcon />
-          little garden<span className="wordmark-period">.</span>
+          Bloomlet<span className="wordmark-period">.</span>
         </a>
         {gift ? (
           <button type="button" className="picked-link" onClick={leaveGift}>
@@ -4042,14 +5573,14 @@ export default function Home() {
             <div className="hero-copy">
               <p className="eyebrow">A little place to gather flowers</p>
               <h1>
-                A garden of
+                Gather a few,
                 <br />
-                <em>little things.</em>
+                <em>send a bouquet.</em>
               </h1>
               <p className="hero-description">
-                Some flowers are picked. Some are left to grow.
+                Pick your favourite blooms, tie them with a ribbon,
                 <br className="desktop-break" />
-                Wander a little, and see what finds you.
+                and send them with a little note that says it all.
               </p>
               <a href="#meadow" className="scroll-cue">
                 <span>Wander into the garden</span>
@@ -4058,78 +5589,9 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="garden-section" id="meadow">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">The flower field · No. 01</p>
-                <h2>Take your time.</h2>
-              </div>
-              <p className="field-instruction">
-                Tap a flower to add it,
-                <br />
-                tap again for more of the same ↗
-              </p>
-            </div>
-
-            <div className="meadow">
-              <MeadowBackdrop />
-              <div className="sun-wash" aria-hidden="true" />
-              <div className="sun-rays" aria-hidden="true" />
-              <Specks />
-              <Motes />
-
-              <div className="meadow-note meadow-note-top" aria-hidden="true">
-                <span>Fig. 01</span>
-                <span>The wild meadow</span>
-              </div>
-
-              {flowers.map((flower, index) => (
-                <Tuft key={`tuft-${flower.id}`} seed={flower.id} style={plantStyle(flower, index)} />
-              ))}
-
-              {flowers.map((flower, index) => {
-                const count = counts.get(flower.id) ?? 0;
-                const isPicked = count > 0;
-
-                return (
-                  <button
-                    key={flower.id}
-                    type="button"
-                    className={`flower${isPicked ? " flower-picked" : ""}`}
-                    style={plantStyle(flower, index)}
-                    onClick={() => addFlower(flower.id)}
-                    aria-disabled={isFull}
-                    aria-label={`Add ${flower.name} (${flower.botanicalName}) to your bouquet${
-                      isPicked ? `, ${count} added so far` : ""
-                    }`}
-                    title={`${flower.name} · ${flower.botanicalName}`}
-                  >
-                    <span className="flower-halo" aria-hidden="true" />
-                    <span className="flower-art" aria-hidden="true">
-                      <span className="flower-sway">
-                        <FlowerArt flower={flower} />
-                      </span>
-                    </span>
-                    {isPicked && (
-                      <span key={count} className="picked-mark" aria-hidden="true">
-                        {count > 1 ? count : "✓"}
-                      </span>
-                    )}
-                    <span className="flower-label" aria-hidden="true">
-                      {flower.name}
-                    </span>
-                  </button>
-                );
-              })}
-
-              <GrassFringe />
-
-              <div className="meadow-note meadow-note-bottom" aria-hidden="true">
-                <span>{flowers.length} varieties</span>
-                <span>Growing in their own time</span>
-              </div>
-            </div>
-          </section>
+          {FIELDS.map((field) => (
+            <FlowerField key={field.id} field={field} counts={counts} isFull={isFull} onAdd={addFlower} />
+          ))}
 
           <section className="collection" id="your-picks">
             <div className="collection-heading">
@@ -4223,6 +5685,8 @@ export default function Home() {
           paperId={paperId}
           ribbonId={ribbonId}
           fillers={fillers}
+          butterflyColors={butterflyColors}
+          onButterflyColorsChange={setButterflyColors}
           onStyleChange={setWrapStyle}
           onPaperChange={setPaperId}
           onRibbonChange={setRibbonId}
@@ -4241,6 +5705,7 @@ export default function Home() {
           paperId={paperId}
           ribbonId={ribbonId}
           fillers={fillers}
+          butterflyColors={butterflyColors}
           to={toName}
           from={fromName}
           message={message}
@@ -4262,9 +5727,9 @@ export default function Home() {
       <footer className="garden-footer">
         <a href="#" className="wordmark">
           <WordmarkIcon />
-          little garden<span className="wordmark-period">.</span>
+          Bloomlet<span className="wordmark-period">.</span>
         </a>
-        <span>Grown with a little imagination.</span>
+        <span>Created with 🩷 by Fatima Tufail.</span>
       </footer>
     </main>
   );
